@@ -11,15 +11,12 @@ const timerWrapper = document.querySelector('.timer');
 const timer = document.querySelector('.timePassed');
 const timeTotal = document.querySelector('.timeTotal');
 const timerBar = document.querySelector('.timer div');
+let timeout = null;
 
 media.removeAttribute('controls');
 controls.style.visibility = 'visible';
 
-let timeout = null;
-player.addEventListener('mousemove', (e) => {
-    stopHide();
-    startHide();
-});
+player.addEventListener('mousemove', startHide);
 
 play.addEventListener('click', playPauseMedia);
 stop.addEventListener('click', stopMedia);
@@ -183,14 +180,13 @@ function toggleFullscreen() {
 }
 
 function startHide() {
+    clearTimeout(timeout);
+    controls.style.visibility = 'visible';
+    timerWrapper.style.visibility = 'visible';
     timeout = setTimeout(function () {
         controls.style.visibility = 'hidden';
         timerWrapper.style.visibility = 'hidden';
     }, 3000);
 }
 
-function stopHide() {
-    clearTimeout(timeout);
-    controls.style.visibility = 'visible';
-    timerWrapper.style.visibility = 'visible';
-}
+// function stopHide() {}

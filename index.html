@@ -1,12 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom-Video-Player</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles/css/css.css" />
+        <script
+            src="https://kit.fontawesome.com/671c6e5434.js"
+            crossorigin="anonymous"
+        ></script>
+        <title>Custom-Video-Player</title>
+    </head>
+    <body>
+        <div class="player">
+            <video controls>
+                <source
+                    src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Big_Buck_Bunny_first_23_seconds_1080p.ogv"
+                    type="video/ogg"
+                />
+                <source
+                    src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Big_Buck_Bunny_first_23_seconds_1080p.ogv"
+                    type="video/webm"
+                />
+                <!-- fallback content here -->
+            </video>
+            <div class="timer">
+                <div></div>
+            </div>
+            <div class="controls">
+                <!-- Play/Pause -->
+                <button class="play" aria-label="play pause toggle">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button class="stop" data-icon="S" aria-label="stop">
+                    <i class="fas fa-stop"></i>
+                </button>
+                <!-- Volume -->
+                <div class="volumeControl">
+                    <i class="fas fa-volume-up"></i>
+                    <input
+                        type="range"
+                        name=""
+                        id="volumeControlBar"
+                        value="100"
+                        oninput="volume()"
+                    />
+                </div>
+                <!-- Timer -->
+                <div>
+                    <span class="timePassed" aria-label="timer">00:00</span
+                    ><span>/</span
+                    ><span class="timeTotal" aria-label="timer">00:00</span>
+                </div>
+
+                <div class="rightSide">
+                    <!-- Playback settings -->
+                    <button class="playbackSpeed" aria-label="settings">
+                        <i class="fas fa-cog"></i>
+                        <select name="speeds" id="speeds">
+                            <option value="superSlow">0.5x Playback</option>
+                            <option value="slow">0.75x Playback</option>
+                            <option value="normal" selected>1x Playback</option>
+                            <option value="fast">1.5x Playback</option>
+                            <option value="superFast">2x Playback</option>
+                        </select>
+                    </button>
+                    <!-- Fullscreen Settings -->
+                    <button class="fullscreenToggle" aria-label="fullscreen">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <script src="scripts/app.js"></script>
+    </body>
 </html>

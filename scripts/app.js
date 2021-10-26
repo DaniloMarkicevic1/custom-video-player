@@ -43,7 +43,6 @@ function playPauseMedia() {
         play.childNodes[1].classList.replace('fa-pause', 'fa-play');
         media.pause();
     }
-
     setMaxTime();
 }
 

@@ -34,7 +34,6 @@ timerWrapper.addEventListener('click', (e) => {
 function clickToTime(event) {
     const progressTime =
         (event.offsetX / timerWrapper.offsetWidth) * media.duration;
-    console.log(progressTime);
     media.currentTime = progressTime;
 }
 
@@ -139,24 +138,19 @@ function setMaxTime() {
 function changePlaybackSpeed() {
     switch (playbackSpeed.value) {
         case 'superSlow':
-            console.log('superSlow');
             media.playbackRate = 0.5;
             break;
         case 'slow':
             media.playbackRate = 0.75;
-            console.log('slow');
             break;
         case 'normal':
             media.playbackRate = 1;
-            console.log('normal');
             break;
         case 'fast':
             media.playbackRate = 1.5;
-            console.log('fast');
             break;
         case 'superFast':
             media.playbackRate = 2;
-            console.log('superFast');
             break;
     }
 }
@@ -166,7 +160,6 @@ function toggleFullscreen() {
         document
             .exitFullscreen()
             .then(() => {
-                console.log('Document Exited from Full screen mode');
                 fullscreen.childNodes[1].classList.replace(
                     'fa-compress',
                     'fa-expand'
@@ -188,5 +181,3 @@ function startHide() {
         timerWrapper.style.visibility = 'hidden';
     }, 3000);
 }
-
-// function stopHide() {}
